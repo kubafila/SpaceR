@@ -1,0 +1,104 @@
+<section class="source">
+
+<h2 class="source__heading">Kod zródłowy</h2>
+
+
+<div class="source__split-wrapper">
+
+<div class="source__split source__split--php">
+
+
+    <h3 class="source__heading source__heading--php">PHP</h3>
+    <pre>
+    <code class="language-php">
+
+        $falcon9 = array(
+          'name' =>'Falcon 9',
+          'height' => 63.3,
+          'mass' => 549054,
+          'diameter' => 3.7,
+          'costPerLaunch' => 57000000,
+        );
+
+        $falconHeavy = array(
+          'name' =>'Falcon Heavy',
+          'height' => 70,
+          'diameter' => 12.2,
+          'mass' => 1420788,
+          'costPerLaunch' => 90000000
+        );
+
+        $dragon= array(
+          'name' =>'Dragon',
+          'height' => 8.1,
+          'diameter' => 12.2,
+          'costPerLaunch' => 57000000,
+          'mass' => 4200
+        );
+
+        $rockets = [];
+
+        array_push($rockets, $falcon9, $falconHeavy, $dragon);
+
+
+        return $this -> render('rocket/homepage.html.twig', [
+          'rockets' => $rockets
+          ]);
+    </code>
+    </pre>
+
+
+  </div>
+
+
+<div class="source__split source__split--twig">
+
+
+
+    <h3 class="source__heading source__heading--twig">Twig</h3>
+    <pre>
+    <code class="language-twig">
+    {{ '{%' }} for rocket in rockets %}
+
+      {{ '{%' }} set classname =  rocket.name|replace({' ':'-'})|lower %}
+      {{ '{%' }} set price =  rocket.costPerLaunch|number_format(0, "", " ") %}
+      {{ '{%' }} set mass =  rocket.mass|number_format(0, "", " ") %}
+
+
+      &lt;li class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card__face card__face--front card__face--front-{{ '{{' }} classname }}&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;card__face card__face--back&quot;&gt;
+          &lt;p class=&quot;card__title&quot;&gt;{{ '{{' }}rocket.name}}&lt;/p&gt;
+          &lt;p class=&quot;card__property&quot;&gt;
+            Wysokość: &lt;span class=&quot;card__value&quot;&gt;{{ '{{' }}rocket.height}} m&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class=&quot;card__property&quot;&gt;
+            Średnica: &lt;span class=&quot;card__value&quot;&gt;{{ '{{' }}rocket.diameter}} m&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class=&quot;card__property&quot;&gt;
+            Masa: &lt;span class=&quot;card__value&quot;&gt;{{ '{{' }} mass }} kg&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class=&quot;card__property&quot;&gt;
+            Cena za lot: &lt;span class=&quot;card__value&quot;&gt;${{ '{{' }} price }}&lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+
+    {{ '{%' }} endfor %}
+
+
+    </code>
+    </pre>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+</section>

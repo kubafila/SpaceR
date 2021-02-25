@@ -1,0 +1,52 @@
+
+{% block rockets %}
+
+<section class="vehicles">
+	<h2 class="vehicles__header">Poznaj nasze rakiety:</h2>
+Ilość rakiet:
+{{rockets|length}}
+
+	<ul class="cards">
+
+    {% for rocket in rockets %}
+
+      {% set classname =  rocket.name|replace({' ':'-'})|lower %}
+      {% set price =  rocket.costPerLaunch|number_format(0, "", " ") %}
+      {% set mass =  rocket.mass|number_format(0, "", " ") %}
+
+
+      <li class="card">
+        <div class="card__face card__face--front card__face--front-{{ classname }}"></div>
+        <div class="card__face card__face--back">
+          <p class="card__title">{{rocket.name}}</p>
+          <p class="card__property">
+            Wysokość:
+            <span class="card__value">{{rocket.height}}
+              m</span>
+          </p>
+          <p class="card__property">
+            Średnica:
+            <span class="card__value">{{rocket.diameter}}
+              m</span>
+          </p>
+          <p class="card__property">
+            Masa:
+            <span class="card__value">{{ mass }}
+              kg</span>
+          </p>
+          <p class="card__property">
+            Cena za lot:
+            <span class="card__value">${{ price }}</span>
+          </p>
+        </div>
+      </li>
+
+    {% endfor %}
+
+
+
+	</ul>
+</section>
+
+
+{% endblock %}

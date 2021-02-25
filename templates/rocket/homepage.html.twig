@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block title %}SpaceR{% endblock %}
+
+{% block stylesheet %}
+
+
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/prism.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<main>
+
+{% include "rocket/hero.html.twig" %}
+{% include "rocket/rockets.html.twig" %}
+{% include "rocket/code.html.twig" %}
+
+
+
+<p class="copyright">Zdjęcia, dane oraz nazwy rakiet pochodzą ze strony firmy <a href="https://www.spacex.com/trademark/">SpaceX</a></p>
+<p class="copyright">I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with Space Exploration Technologies Corp (SpaceX), or any of its subsidiaries or its affiliates. The names SpaceX as well as related names, marks, emblems and images are registered trademarks of their respective owners.</p>
+
+
+
+
+</main>
+<script src="scripts/prism.js" defer></script>
+<script src="scripts/rocket.js" defer></script>
+
+
+
+{% endblock %}
